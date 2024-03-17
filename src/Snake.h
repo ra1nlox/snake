@@ -21,6 +21,8 @@ class Snake {
     // Логические переменные для отслеживания направления движения
     bool m_LeftPressed;
     bool m_RightPressed;
+    bool m_UpPressed;
+    bool m_DownPressed;
 
     // Скорость Боба в пикселях в секунду
     float m_Speed;
@@ -38,10 +40,18 @@ class Snake {
 
     void moveRight();
 
+    void moveUp();
+
+    void moveDown();
+
     // Прекращение движения
     void stopLeft();
 
     void stopRight();
+
+    void stopUp();
+
+    void stopDown();
 
     // Эта функция будет вызываться на каждый кадр
     void update(float elapsedTime);

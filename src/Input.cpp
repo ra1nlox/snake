@@ -8,14 +8,30 @@ void Engine::input() {
 
     // Обрабатываем нажатие клавиш движения
     if (Keyboard::isKeyPressed(Keyboard::A)) {
+        m_Snake.stopUp();
+        m_Snake.stopDown();
+        m_Snake.stopRight();
         m_Snake.moveLeft();
-    } else {
-        m_Snake.stopLeft();
     }
 
     if (Keyboard::isKeyPressed(Keyboard::D)) {
+        m_Snake.stopUp();
+        m_Snake.stopDown();
+        m_Snake.stopLeft();
         m_Snake.moveRight();
-    } else {
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::W)) {
+        m_Snake.stopLeft();
         m_Snake.stopRight();
+        m_Snake.stopDown();
+        m_Snake.moveUp();
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::S)) {
+        m_Snake.stopLeft();
+        m_Snake.stopRight();
+        m_Snake.stopUp();
+        m_Snake.moveDown();
     }
 }

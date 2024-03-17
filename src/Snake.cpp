@@ -9,8 +9,8 @@ Snake::Snake() {
     m_Sprite.setTexture(m_Texture);
 
     // Устанавливаем начальную позицию Боба в пикселях
-    m_Position.x = 500;
-    m_Position.y = 800;
+    m_Position.x = 200;
+    m_Position.y = 400;
 }
 
 // Делаем приватный спрайт доступным для функции draw()
@@ -26,12 +26,28 @@ void Snake::moveRight() {
     m_RightPressed = true;
 }
 
+void Snake::moveUp() {
+    m_UpPressed = true;
+}
+
+void Snake::moveDown() {
+    m_DownPressed = true;
+}
+
 void Snake::stopLeft() {
     m_LeftPressed = false;
 }
 
 void Snake::stopRight() {
     m_RightPressed = false;
+}
+
+void Snake::stopUp() {
+    m_UpPressed = false;
+}
+
+void Snake::stopDown() {
+    m_DownPressed = false;
 }
 
 // Двигаем Боба на основании пользовательского ввода в этом кадре,
@@ -43,6 +59,14 @@ void Snake::update(float elapsedTime) {
 
     if (m_LeftPressed) {
         m_Position.x -= m_Speed * elapsedTime;
+    }
+
+    if (m_UpPressed) {
+        m_Position.y -= m_Speed * elapsedTime;
+    }
+
+    if (m_DownPressed) {
+        m_Position.y += m_Speed * elapsedTime;
     }
 
     // Теперь сдвигаем спрайт на новую позицию

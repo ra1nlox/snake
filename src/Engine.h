@@ -13,7 +13,7 @@ class Engine {
     Sprite m_BackgroundSprite;
     Texture m_BackgroundTexture;
 
-    // Экземпляр Боба
+    // Экземпляр Змеи
     Snake m_Snake;
 
     void input();

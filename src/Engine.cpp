@@ -2,13 +2,19 @@
 
 Engine::Engine() {
     // Получаем разрешение экрана, создаем окно SFML и View
-    Vector2f resolution;
-    resolution.x = VideoMode::getDesktopMode().width;
-    resolution.y = VideoMode::getDesktopMode().height;
+    // Vector2f resolution;
+    // resolution.x = VideoMode::getDesktopMode().width;
+    // resolution.y = VideoMode::getDesktopMode().height;
+    Vector2u resolution;
+    resolution.x = 800u;
+    resolution.y = 600u;
 
     m_Window.create(VideoMode(resolution.x, resolution.y),
                     "Simple Game Engine",
-                    Style::Fullscreen);
+                    Style::Default);
+
+    m_Window.setSize(sf::Vector2u(800, 600));
+    // m_Window.setPosition(sf::Vector2i(resolution.x / 2 - resolution.x, resolution.y / 2 - resolution.y));
 
     // Загружаем фон в текстуру
     // Подготовьте изображение под ваш размер экрана в редакторе
