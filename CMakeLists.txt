@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(CMakeSFMLProject LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_GENERATOR "MinGW Makefiles" CACHE INTERNAL "" FORCE)
 message("generator is set to ${CMAKE_GENERATOR}")
@@ -13,10 +14,12 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-set(SOURCE_EXE src/main.cpp)
-set(SOURCE_LIB src/player.h)
 
-add_library(player DYNAMIC ${SOURCE_LIB})
+set(SOURCE_EXE src/Main.cpp src/Snake.cpp src/Draw.cpp src/Engine.cpp src/Input.cpp src/Update.cpp)
+set(SOURCE_LIB src/Snake.h src/Engine.h)
+
+add_library(Engine ${SOURCE_LIB})
+set_target_properties(Engine PROPERTIES LINKER_LANGUAGE CXX)
 
 add_executable(main ${SOURCE_EXE})
 target_link_libraries(main PRIVATE sfml-graphics)
