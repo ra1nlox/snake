@@ -15,11 +15,11 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 
-set(SOURCE_EXE src/Main.cpp src/Snake.cpp src/Draw.cpp src/Engine.cpp src/Input.cpp src/Update.cpp)
-set(SOURCE_LIB src/Snake.h src/Engine.h)
+set(SOURCE_EXE src/main.cpp )
+# set(SOURCE_LIB )
 
-add_library(Engine ${SOURCE_LIB})
-set_target_properties(Engine PROPERTIES LINKER_LANGUAGE CXX)
+# add_library(Engine ${SOURCE_LIB})
+# set_target_properties(Engine PROPERTIES LINKER_LANGUAGE CXX)
 
 add_executable(main ${SOURCE_EXE})
 target_link_libraries(main PRIVATE sfml-graphics)
